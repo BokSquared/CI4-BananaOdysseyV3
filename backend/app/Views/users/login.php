@@ -223,7 +223,7 @@
 
             <form>
                 <div class="input-group">
-                    <input type="text" placeholder="Username">
+                    <input type="text" placeholder="Email">
                 </div>
                 <div class="input-group">
                     <input type="password" placeholder="Password">
