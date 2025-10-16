@@ -8,13 +8,12 @@
     <img src="./assets/img/nyebe_white.png" alt="Nyebe" width="130" height="100">
   </a>
 <!-- * Title Section -->
-  <h3 align="center">AD - CI4 Template</h3>
+  <h3 align="center">AD - CI4 - Banana Odyssey</h3>
 </div>
 
 <!-- * Description Section -->
 <div align="center">
-This repository is a beginner-friendly CodeIgniter 4 template.  
-It helps teams quickly bootstrap backend + frontend projects, with simple sample modules that show how to extend the system.
+A CodeIgniter 4 project for selling Banana Cakes. This project showcases a simple online banana cake ordering system built with CodeIgniter 4, designed to help students and teams practice PHP development and GitHub collaboration while creating a functional and deliciously themed web app.
 </div>
 
 <br/>
@@ -55,22 +54,24 @@ It helps teams quickly bootstrap backend + frontend projects, with simple sample
 
 ## Overview
 
-This template provides a **minimal CodeIgniter 4 project layout** with conventions for file organization, commit practices, and simple modules.
+AD - CI4 - Banana Odyssey is a CodeIgniter 4 project that powers an online banana cake ordering system. It’s built with clear structure and modular design, using modern PHP practices and GitHub workflows.
 
-It is designed to be **easy to start with** and a **reference for adding new features**.
+The system allows customers to browse and order banana cakes online, while showcasing efficient development patterns with CI4, Docker, and PHP.
 
-* **Purpose**: a clean starting point for CI4 apps.
-* **Audience**: developers who want a predictable structure and quick onboarding.
+* **Purpose**: To provide a functional, maintainable web application for managing banana cake sales and orders.
+* **Audience**: Customers craving banana cake, and developers interested in exploring CI4 and collaborative development workflows.
 
 ### Key Components
 
-These are **sample modules** included (or suggested) for learning how to add features:
+These are **core and sample modules** that make up the Banana Odyssey system:
 
-| Component                 | Purpose                                                             | Notes                                                   |
-| ------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------- |
-| **Auth (Sample)**         | Basic login/logout and role check (admin/user).                     | Uses CI4 sessions + MySQL `users` table.                |
-| **CRUD Module**           | Example entity (`Posts` or `Tasks`) with create/read/update/delete. | Demonstrates Controller → Service → Repository pattern. |
-| **Scheduler (Sample)**    | Simple to-do list with due dates.                                   | Shows how to extend with new tables and services.       |
+| Component                | Purpose                                                               | Notes                                                    |
+| ------------------------- | --------------------------------------------------------------------- | -------------------------------------------------------- |
+| **Authentication Module** | Handles customer and admin login, registration, and access control.   | Uses CI4 sessions and a `users` table in MySQL.          |
+| **Product Management**    | Allows admins to manage banana cake listings (name, price, stock, etc.). | Demonstrates CRUD operations using the MVC pattern.      |
+| **Order System**          | Enables customers to place, view, and track their banana cake orders. | Includes order status management and checkout workflow.  |
+| **Inventory Tracker**     | Monitors cake stocks and updates automatically after purchases.       | Shows integration between services and repositories.     |
+| **Scheduler (Optional)**  | Lets admins schedule cake production or delivery times.               | Demonstrates extending modules with new tables/services. |
 
  <!-- ! Start simple. Use these modules as **learning samples**; extend or replace them based on your project’s needs. -->
 
@@ -91,9 +92,6 @@ These are **sample modules** included (or suggested) for learning how to add fea
 #### Databases
 
 ![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge\&logo=mysql\&logoColor=white)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-336791?style=for-the-badge\&logo=postgresql\&logoColor=white)
-![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge\&logo=mongodb\&logoColor=white)
-![Firebase](https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge\&logo=firebase\&logoColor=black)
 
 <!-- ! Keep only the used technology -->
 
