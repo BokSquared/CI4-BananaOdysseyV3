@@ -35,4 +35,9 @@ class Users extends BaseController
     {
         return view('admin/adminDashboard');
     }
+
+    public function menu(): string
+    {
+        return view('admin/menu');
+    }
 }
