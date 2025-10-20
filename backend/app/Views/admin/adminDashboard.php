@@ -32,9 +32,10 @@
                 <a href="#" class="flex items-center gap-3 hover:bg-[var(--secondary)] hover:text-[var(--accent)] p-3 rounded-lg transition">
                     <i class="bi bi-people"></i> Accounts
                 </a>
-                <a href="#" class="flex items-center gap-3 hover:bg-[var(--secondary)] hover:text-[var(--accent)] p-3 rounded-lg transition">
+                <a href="<?= site_url('orders') ?>" class="flex items-center gap-3 hover:bg-[var(--secondary)] hover:text-[var(--accent)] p-3 rounded-lg transition">
                     <i class="bi bi-cart"></i> Orders
                 </a>
+
             </nav>
 
             <footer class="mt-10 text-sm text-[var(--accent)] opacity-80">
