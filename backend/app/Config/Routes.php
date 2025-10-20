@@ -22,3 +22,9 @@ $routes->get('/admin/menu', 'Users::menu');
 $routes->get('/admin/accounts', 'Users::accounts');
 
 $routes->get('/admin/orders', 'Users::orders');
+
+$routes->post('login', 'Auth::login');
+
+$routes->post('logout', 'Auth::logout');
+
+$routes->post('signup', 'Auth::signup');
