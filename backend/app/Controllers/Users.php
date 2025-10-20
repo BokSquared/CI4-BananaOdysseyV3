@@ -30,4 +30,14 @@ class Users extends BaseController
     {
         return view('users/roadMap');
     }
+
+    public function adminDashboard(): string
+    {
+        return view('admin/adminDashboard');
+    }
+
+    public function menu(): string
+    {
+        return view('admin/menu');
+    }
 }
