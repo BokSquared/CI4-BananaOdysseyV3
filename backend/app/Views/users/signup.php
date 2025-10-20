@@ -1,3 +1,8 @@
+<?php
+$errors = session()->getFlashdata('errors') ?? [];
+$old = session()->getFlashdata('old') ?? [];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -217,25 +222,54 @@
             <h2>Create Account</h2>
             <p class="subtitle">Join Banana Odyssey today</p>
 
-            <form>
+            <form action="/signup" method="post" novalidate>
                 <div class="input-group">
-                    <input type="text" placeholder="First Name">
+                    <input
+                        type="text"
+                        name="first_name"
+                        placeholder="First Name"
+                        value="<?= esc($old['first_name'] ?? '') ?>"
+                        required>
                 </div>
 
                 <div class="input-group">
-                    <input type="text" placeholder="Middle Name">
+                    <input
+                        type="text"
+                        name="middle_name"
+                        placeholder="Middle Name"
+                        value="<?= esc($old['middle_name'] ?? '') ?>">
                 </div>
 
                 <div class="input-group">
-                    <input type="text" placeholder="Last Name">
+                    <input
+                        type="text"
+                        name="last_name"
+                        placeholder="Last Name"
+                        value="<?= esc($old['last_name'] ?? '') ?>"
+                        required>
                 </div>
 
                 <div class="input-group">
-                    <input type="email" placeholder="Email">
+                    <input
+                        type="email"
+                        name="email"
+                        placeholder="Email"
+                        value="<?= esc($old['email'] ?? '') ?>"
+                        required>
+                    <?php if (!empty($errors['email'])): ?>
+                        <p class="mt-1 text-red-600 text-sm"><?= esc($errors['email']) ?></p>
+                    <?php endif; ?>
                 </div>
 
                 <div class="input-group">
-                    <input type="password" placeholder="Password">
+                    <input
+                        type="password"
+                        name="password"
+                        placeholder="Password"
+                        required>
+                    <?php if (!empty($errors['password'])): ?>
+                        <p class="mt-1 text-red-600 text-sm"><?= esc($errors['password']) ?></p>
+                    <?php endif; ?>
                 </div>
 
                 <button type="submit" class="btn">Sign Up</button>

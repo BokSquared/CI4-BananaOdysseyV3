@@ -9,10 +9,14 @@
     <header class="bg-[var(--secondary)] text-[var(--accent)] py-4 px-8 flex justify-between items-center shadow-lg">
         <h1 class="text-2xl font-bold tracking-wide font-[PlayfairDisplay]">🍌 Banana Odyssey Admin</h1>
         <div class=" flex items-center gap-6">
-            <a href="/">Back to Home</a>
             <input type=" text" placeholder="Search..."
                 class="px-4 py-2 rounded-lg bg-[var(--accent)] text-[var(--neutral)] border border-[var(--primary)] focus:outline-none focus:ring-2 focus:ring-[var(--primary)]">
-            <button class="btn-primary px-4 py-2 rounded-lg font-semibold">Logout</button>
+            <form action="/logout" method="get" class="inline">
+                <button type="submit" class="btn-primary px-4 py-2 rounded-lg font-semibold">
+                    Logout
+                </button>
+            </form>
+
         </div>
     </header>
 
