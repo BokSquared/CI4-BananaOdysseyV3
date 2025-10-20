@@ -20,3 +20,5 @@ $routes->get('/adminDashboard', 'Users::adminDashboard');
 $routes->get('/menu', 'Users::menu');
 
 $routes->get('/accounts', 'Users::accounts');
+
+$routes->get('/orders', 'Users::orders');
