@@ -15,10 +15,10 @@ $routes->get('/moodPage', 'Users::moodPage');
 
 $routes->get('/roadMap', 'Users::roadMap');
 
-$routes->get('/adminDashboard', 'Users::adminDashboard');
+$routes->get('/admin/adminDashboard', 'Users::adminDashboard');
 
-$routes->get('/menu', 'Users::menu');
+$routes->get('/admin/menu', 'Users::menu');
 
-$routes->get('/accounts', 'Users::accounts');
+$routes->get('/admin/accounts', 'Users::accounts');
 
-$routes->get('/orders', 'Users::orders');
+$routes->get('/admin/orders', 'Users::orders');
