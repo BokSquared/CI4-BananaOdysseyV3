@@ -47,7 +47,7 @@ class Auth extends Controller
             'type' => $userArr['type'],
         ]);
 
-        return redirect()->to($userArr['type'] === 'manager' ? '/admin/dashboard' : '/');
+        return redirect()->to($userArr['type'] === 'admin' ? '/admin/adminDashboard' : '/');
     }
 
     public function logout()
@@ -55,8 +55,9 @@ class Auth extends Controller
         session()->destroy();
         $params = session_get_cookie_params();
         setcookie(session_name(), '', time() - 3600, $params['path'] ?? '/', $params['domain'] ?? '', isset($_SERVER['HTTPS']), true);
-        return redirect()->to('/');
+        return redirect()->to('/login');
     }
+
 
     public function signup()
     {

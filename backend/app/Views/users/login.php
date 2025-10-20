@@ -214,6 +214,10 @@
 </head>
 
 <body>
+    <?php
+    $errors = session()->getFlashdata('errors') ?? [];
+    $old = session()->getFlashdata('old') ?? [];
+    ?>
     <div class="hero-side"></div>
 
     <div class="login-side">
@@ -221,13 +225,33 @@
             <h2>Welcome Back</h2>
             <p class="subtitle">Log in to your account</p>
 
-            <form>
+            <form class="space-y-6 mt-8" action='/login' method="post" novalidate>
                 <div class="input-group">
-                    <input type="text" placeholder="Email">
+                    <input
+                        type="text"
+                        name="email"
+                        id="email"
+                        placeholder="Email"
+                        value="<?= esc($old['email'] ?? '') ?>"
+                        aria-invalid="<?= isset($errors['email']) ? 'true' : 'false' ?>">
+                    <?php if (! empty($errors['email'])): ?>
+                        <p class="mt-1 text-red-600 text-sm"><?= esc($errors['email']) ?></p>
+                    <?php endif; ?>
                 </div>
+
                 <div class="input-group">
-                    <input type="password" placeholder="Password">
+                    <input
+                        type="password"
+                        name="password"
+                        id="password"
+                        placeholder="Password"
+                        required
+                        aria-invalid="<?= isset($errors['password']) ? 'true' : 'false' ?>">
+                    <?php if (! empty($errors['password'])): ?>
+                        <p class="mt-1 text-red-600 text-sm"><?= esc($errors['password']) ?></p>
+                    <?php endif; ?>
                 </div>
+
 
                 <div class="forgot-password">
                     <a href="#">Forgot password?</a>

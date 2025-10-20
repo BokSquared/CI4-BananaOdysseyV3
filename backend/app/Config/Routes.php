@@ -25,6 +25,7 @@ $routes->get('/admin/orders', 'Users::orders');
 
 $routes->post('login', 'Auth::login');
 
+$routes->get('logout', 'Auth::logout');
 $routes->post('logout', 'Auth::logout');
 
 $routes->post('signup', 'Auth::signup');
