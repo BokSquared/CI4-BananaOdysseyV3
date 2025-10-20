@@ -18,3 +18,5 @@ $routes->get('/roadMap', 'Users::roadMap');
 $routes->get('/adminDashboard', 'Users::adminDashboard');
 
 $routes->get('/menu', 'Users::menu');
+
+$routes->get('/accounts', 'Users::accounts');
