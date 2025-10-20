@@ -39,19 +39,15 @@ class Auth extends Controller
             return redirect()->back()->withInput();
         }
 
-        $sessionUser = [
+        $session->set('user', [
             'id' => $userArr['id'],
             'email' => $userArr['email'],
             'first_name' => $userArr['first_name'],
             'last_name' => $userArr['last_name'],
             'type' => $userArr['type'],
-        ];
+        ]);
 
-        $session->set('user', $sessionUser);
-
-        return redirect()->to(
-            $sessionUser['type'] === 'admin' ? '/admin/dashboard' : '/'
-        );
+        return redirect()->to($userArr['type'] === 'admin' ? '/admin/adminDashboard' : '/');
     }
 
     public function logout()

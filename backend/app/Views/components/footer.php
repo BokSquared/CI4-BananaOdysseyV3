@@ -26,10 +26,10 @@
 
         <div class="flex-1 grid grid-cols-2 gap-6">
             <ul class="space-y-2 text-sm">
-                <li><a href="<?= base_url('/') ?>" class="hover:text-yellow-200">Home</a></li>
-                <li><a href="<?= base_url('#') ?>" class="hover:text-yellow-200">About</a></li>
+                <li><a href="<?= base_url('/admin/adminDashboard') ?>" class="hover:text-yellow-200">Dashboard</a></li>
                 <li><a href="<?= base_url('/admin/menu') ?>" class="hover:text-yellow-200">Menu</a></li>
-                <li><a href="<?= base_url('#') ?>" class="hover:text-yellow-200">Contact</a></li>
+                <li><a href="<?= base_url('/admin/accounts') ?>" class="hover:text-yellow-200">Accounts</a></li>
+                <li><a href="<?= base_url('/admin/orders') ?>" class="hover:text-yellow-200">Orders</a></li>
             </ul>
 
             <ul class="space-y-2 text-sm">
