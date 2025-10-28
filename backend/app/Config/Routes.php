@@ -31,3 +31,6 @@ $routes->post('logout', 'Auth::logout');
 $routes->post('signup', 'Auth::signup');
 
 $routes->get('/test/show', 'CRUDTesting::showUsersPage');
+
+$routes->get('/test/create', 'CRUDTesting::createUserPage');
+$routes->post('/test/storeUser', 'CRUDTesting::storeUser');
