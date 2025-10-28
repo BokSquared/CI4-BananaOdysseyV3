@@ -66,4 +66,68 @@ class CRUDTesting extends Controller
 
         return redirect()->to('/test/show');
     }
+
+    public function showUpdatePage($id = null)
+    {
+        if (!$id) {
+            $user = "Missing requirements: ID";
+            return view('test/user_update', ['user' => $user]);
+        }
+
+        $userModel = new \App\Models\UsersModel();
+
+        try {
+            $user = $userModel->find($id);
+        } catch (\Exception $e) {
+            $user = "Server Issue: " . $e->getMessage();
+        }
+
+        return view('test/user_update', ['user' => $user]);
+    }
+
+    public function updateUser($id = null)
+    {
+        $request = service('request');
+        $post = $request->getPost();
+        $session = session();
+        $userModel = new \App\Models\UsersModel();
+        $validation = \Config\Services::validation();
+
+        // Validation rules
+        $validation->setRule('id', 'ID', 'required|min_length[1]');
+        $validation->setRule('type', 'User Type', 'required|min_length[1]');
+
+        if (! $validation->run($post)) {
+            $session->setFlashdata('errors', $validation->getErrors());
+            $session->setFlashdata('old', $post);
+            return redirect()->back()->withInput();
+        }
+
+        try {
+            $account = $userModel->where('id', $post['id'])->first();
+            if (!$account) {
+                return $this->response->setStatusCode(404)
+                    ->setJSON(['success' => false, 'message' => 'Account not found']);
+            }
+
+            $payload = [
+                'id' => $post['id'],
+                'type' => $post['type'],
+                'first_name' => $post['first_name'],
+                'last_name' => $post['last_name'],
+            ];
+
+            $ok = $userModel->save($payload);
+
+            if ($ok === false) {
+                throw new \Exception('Model update failed');
+            }
+
+            return $this->response->setStatusCode(200)
+                ->setJSON(['success' => true, 'message' => 'Account Updated', 'data' => ['id' => $post['id']]]);
+        } catch (\Throwable $e) {
+            return $this->response->setStatusCode(500)
+                ->setJSON(['success' => false, 'message' => 'Server error: ' . $e->getMessage()]);
+        }
+    }
 }
