@@ -34,3 +34,7 @@ $routes->get('/test/show', 'CRUDTesting::showUsersPage');
 
 $routes->get('/test/create', 'CRUDTesting::createUserPage');
 $routes->post('/test/storeUser', 'CRUDTesting::storeUser');
+
+$routes->get('/test/update/(:num)', 'CRUDTesting::showUpdatePage/$1');
+
+$routes->post('/test/update/(:num)', 'CRUDTesting::updateUser/$1');
