@@ -55,7 +55,7 @@ class Auth extends Controller
         session()->destroy();
         $params = session_get_cookie_params();
         setcookie(session_name(), '', time() - 3600, $params['path'] ?? '/', $params['domain'] ?? '', isset($_SERVER['HTTPS']), true);
-        return redirect()->to('/login');
+        return redirect()->to('/');
     }
 
 
