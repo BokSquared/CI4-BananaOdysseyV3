@@ -29,3 +29,5 @@ $routes->get('logout', 'Auth::logout');
 $routes->post('logout', 'Auth::logout');
 
 $routes->post('signup', 'Auth::signup');
+
+$routes->get('/test/show', 'CRUDTesting::showUsersPage');
