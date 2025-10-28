@@ -68,6 +68,7 @@
             border-radius: 25px;
             font-size: 16px;
             transition: box-shadow 0.3s ease;
+            color: var(--neutral);
         }
 
         .input-group input:focus {
