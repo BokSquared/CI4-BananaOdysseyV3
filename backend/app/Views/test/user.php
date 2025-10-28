@@ -37,8 +37,13 @@ endif; ?>
                     </td>
                     <td class="p-3 border border-gray-300 flex gap-2">
                         <a href="<?= site_url('test/update/' . $user->id) ?>" class="px-2 py-1 bg-gray-600 text-white rounded hover:bg-gray-500">Edit</a>
-                        <a href="<?= site_url('test/delete/' . $user->id) ?>" class="px-2 py-1 bg-red-600 text-white rounded hover:bg-red-500">Delete</a>
+
+                        <form method="POST" action="<?= site_url('/test/delete') ?>" onsubmit="return confirm('Are you sure you want to delete this user?');">
+                            <input type="hidden" name="id" value="<?= $user->id ?>">
+                            <button type="submit" class="px-2 py-1 bg-red-600 text-white rounded hover:bg-red-500">Delete</button>
+                        </form>
                     </td>
+
                 </tr>
             <?php endforeach; ?>
         <?php endif; ?>
