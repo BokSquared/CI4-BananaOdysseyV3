@@ -130,4 +130,50 @@ class CRUDTesting extends Controller
                 ->setJSON(['success' => false, 'message' => 'Server error: ' . $e->getMessage()]);
         }
     }
+
+    public function deleteUser()
+    {
+        $request = service('request');
+        $post = $request->getPost();
+        $session = session();
+
+        // Validation
+        $validation = \Config\Services::validation();
+        $validation->setRule('id', 'ID', 'required|min_length[1]');
+
+        if (! $validation->run($post)) {
+            $session->setFlashdata('errors', $validation->getErrors());
+            $session->setFlashdata('old', $post);
+            return redirect()->back()->withInput();
+        }
+
+        $userModel = new \App\Models\UsersModel();
+
+        try {
+            $account = $userModel->where('id', $post['id'])->first();
+
+            if (!$account) {
+                return $this->response->setStatusCode(404)
+                    ->setJSON(['success' => false, 'message' => 'Account not found']);
+            }
+
+            $payload = [
+                'id' => $post['id'],
+                'account_status' => 0,
+                'deleted_at' => date('Y-m-d H:i:s'),
+            ];
+
+            $ok = $userModel->save($payload);
+
+            if ($ok === false) {
+                throw new \Exception('Model deletion failed');
+            }
+
+            return $this->response->setStatusCode(200)
+                ->setJSON(['success' => true, 'message' => 'Account Deleted', 'data' => ['id' => $post['id']]]);
+        } catch (\Throwable $e) {
+            return $this->response->setStatusCode(500)
+                ->setJSON(['success' => false, 'message' => 'Server error while deleting account: ' . $e->getMessage()]);
+        }
+    }
 }
