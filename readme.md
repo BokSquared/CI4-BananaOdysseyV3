@@ -13,7 +13,7 @@
 
 <!-- * Description Section -->
 <div align="center">
-A CodeIgniter 4 project for selling Banana Cakes. This project showcases a simple online banana cake ordering system built with CodeIgniter 4, designed to help students and teams practice PHP development and GitHub collaboration while creating a functional and deliciously themed web app.
+A CodeIgniter 4 project for selling Banana Cakes. This project showcases a simple online banana cake ordering system built with CodeIgniter 4.
 </div>
 
 <br/>
