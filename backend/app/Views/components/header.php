@@ -43,14 +43,19 @@
     }
 </style>
 
+<?php $user = session()->get('user'); ?>
+
 <div class="header">
-    <a class="title" href="#">🍌Banana Odyssey</a>
+    <a class="title" href="/">🍌Banana Odyssey</a>
     <ul class="btn-header">
-        <li><a href="/">Home</a></li>
-        <li><a href="#">Menu</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Contact</a></li>
-        <li><a href="/login">Login</a></li>
-        <li><a href="/signup">Sign Up</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#menu">Menu</a></li>
+
+        <?php if ($user): ?>
+            <li><a href="<?= base_url('/logout') ?>" class="hover:text-yellow-200">Logout</a></li>
+        <?php else: ?>
+            <li><a href="<?= base_url('/login') ?>" class="hover:text-yellow-200">Log In</a></li>
+            <li><a href="<?= base_url('/signup') ?>" class="hover:text-yellow-200">Sign Up</a></li>
+        <?php endif; ?>
     </ul>
 </div>
